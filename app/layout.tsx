@@ -3,6 +3,7 @@ import "@/app/globals.css";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NextAuthProvider } from "@/components/next-auth-provider";
+import GoogleAnalytics from "@/components/google-analytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default function RootLayout({
             {children}
           </ThemeProvider>
         </NextAuthProvider>
+        {process.env.NODE_ENV !== "development" && <GoogleAnalytics />}
       </body>
     </html>
   );
